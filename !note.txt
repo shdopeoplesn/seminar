@@ -1,0 +1,58 @@
+#網站中文名稱：第十二屆智慧生活科技研討會
+#網站英文名稱：The 12th Intelligent Living Technology Conference (ILT2018)
+#網站簡稱：ILT2018
+#網站代號：ILT
+#網站網址：ILT2018.ncut.edu.tw
+#網站信箱：ILT2018@ncut.edu.tw
+#連絡電話：(04) 2392-4505
+#連絡分機：7210
+#傳真號碼：(04) 2392-4419
+
+
+#資料庫名稱：ILT2018
+#資料庫帳號：root
+#資料庫密碼：root
+#後端帳號1：root
+#後端密碼1：admin
+#後端帳號2：root2
+#後端密碼2：admin2
+#網站信箱密碼：ILT2018
+#研討會日期：20180601
+#論文上傳日期：20180301-20180401
+#定稿上傳日期：20180410-20180430
+#線上報名日期：20180410-20180601
+#早鳥優惠日期：20180301-20180401
+#繳費截止日期：20180601
+#報名金額：2000
+#早鳥優惠金額：1500
+
+#投稿領域名稱：
+	if($category=="1")$category="電能與節能技術";      
+	if($category=="2")$category="智慧型控制系統";
+	if($category=="3")$category="積體電路設計";
+	if($category=="4")$category="消費性家電產品開發與設計";      
+	if($category=="5")$category="嵌入式系統開發與應用";
+	if($category=="6")$category="通訊技術";
+	if($category=="7")$category="網路技術開發與應用";      
+	if($category=="8")$category="多媒體與數位內容技術";
+	if($category=="9")$category="居家照護產品開發與設計";
+	if($category=="10")$category="多媒體安全與應用";
+	if($category=="11")$category="雲端與物聯網應用技術";
+	if($category=="12")$category="系統整合與應用";
+	if($category=="13")$category="其他領域";
+	if($category=="14")$category="Special Sessions";
+#投稿領域代碼：
+	if($category=="1")$type="IEE";      
+	if($category=="2")$type="ICS";
+	if($category=="3")$type="ICD";
+	if($category=="4")$type="3C";      
+	if($category=="5")$type="ESD";
+	if($category=="6")$type="CTD";
+	if($category=="7")$type="NTD";      
+	if($category=="8")$type="MDC";
+	if($category=="9")$type="HCD";
+	if($category=="10")$type="MSA";
+	if($category=="11")$type="CIT";
+	if($category=="12")$type="SIA";
+	if($category=="13")$type="OTH";
+	if($category=="14")$type="SPS";

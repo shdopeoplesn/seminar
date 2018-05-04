@@ -1,0 +1,41 @@
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<style> 
+.JustPrint {display:none} 
+@media print { 
+.JustPrint { display:block; font:9pt verdana; letter-spacing:2px;} 
+.NoPrint {display:none} 
+} 
+.style2 {color: #FF0000}
+body {
+	background-color: #E6FFFF;
+}
+</style> 
+</head> 
+<body> 
+<p align="center"><h1 align="center" class="style2">亂碼問題</h1>
+<br>
+  <h2 align="center">一般來說會產生出現亂碼問題因該是某個輸入字元使用到BIG5以外的格式<br>
+  舉例來說:<br>
+  下圖看似沒問題<br>
+  <img src="../images/q1.JPG"><br>
+  但是點選暫存之後從資料庫讀出來的卻變成<br>
+  <img src="../images/q2.JPG"><br>
+  這個範例的問題在於當中"<span class="style2">來</span>"這個字的編碼使用了<span class="style2">非big5碼</span>的編碼，由於伺服器端使用big5編碼
+  故會使得輸入時編碼錯誤<br>
+  下圖左邊的來是<span class="style2">unicode</span>右邊是<span class="style2">big5</span><br>
+  <img src="../images/q3.JPG"></h2>
+  <br>
+  <h1 align="center" class="style2">解決方法:</h1>
+  <h2 align="center">請將打好的字串複製到記事本上，然後選擇儲存<br>
+  <img src="../images/q4.JPG"><br>
+  如果<span class="style2">有編碼問題</span>因該會出現下圖<br>
+  <img src="../images/q5.JPG"><br>
+選<span class="style2">是</span>之後把剛剛儲存的檔案<span class="style2">關掉</span>，再去儲存的地方<span class="style2">重新打開</span>剛剛儲存的檔案，這時把裡面的文字複製出來就可以解決資料庫亂碼問題。<br>
+  </h2>
+  </p>
+  
+</body> 
+</html>
+

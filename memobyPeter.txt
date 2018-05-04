@@ -1,0 +1,44 @@
+﻿本網站重構需注意之處
+
+1.更新至PHP 5.6
+* PHP tag 要使用完整寫法
+    <?php ....;  ?>
+* 輸出PHP變數內容要使用完整寫法
+    <?php echo $foo; ?> 取代 <?=$foo; ?>
+* PHP 5.4 開始移除 session_is_registered(), session_register() ,session_unregister() 等函數
+    https://www.powerweb.tw/modules/news/V245.html
+* PHP 報錯: “Notice: Undefined variable” 及 “Notice: Undefined index”
+    https://www.phpini.com/php/php-error-notice-undefined-variable-%E5%8F%8A-notice-undefined-index
+    例如：舊版的POST跟GET處理有時候會跑出警告(未定義)，必須先用isset判斷
+	if(isset($_GET['var'])){
+		$var = $_GET['var']
+		...
+	}
+
+2.更新為現代網頁(HTML5, CSS3, UTF-8, RWD)
+* 將所有PHP程式的編碼由big5更改為utf-8
+	使用工具 ConvertZ
+* 使用HTML5的文件宣告
+	使用工具 grepwin 加入下列文件宣告
+	<!DOCTYPE html>
+	<html lang="zh-hant-TW">
+	<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+3.重構紀錄
+* 舊版的變數有可能沒吃$_GET，要自己加上，像是登入頁
+* 將所有 db.php 內資料庫編碼由 big5 改為 utf-8
+* 將 db.php include 方式改為 require，並減少重複的db.php，統一參考根目錄下的 db.php
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -1,0 +1,13 @@
+   if($report == "是")
+    {
+      echo " <tr>
+                 <td width=\"125\" class=title>報名方式</td>
+                 <td width=\"125\" class=title>投稿類別</td>
+                 <td width=\"125\" class=title colspan="5">論文名稱</td>
+               </tr>
+               <tr>
+                 <td class=content>".$pubish."</td>
+                 <td class=content1>".$category."</td>
+                 <td class=content1 colspan="5">".$papername."</td>
+               </tr>";    
+    }

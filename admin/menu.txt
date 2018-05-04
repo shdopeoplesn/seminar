@@ -1,0 +1,8 @@
+	<tr>
+		<td width="20" bgcolor="#E6FFFF">　</td>
+		<td class=menu bgcolor="#E6FFFF"><a target="content" href="on_line.php">參加研討會資料</a></td>
+	</tr>
+	<tr>
+		<td width="20" height="23" bgcolor="#E6FFFF">　</td>
+		<td class=menu bgcolor="#E6FFFF"><a target="content" href="guard.php">給警衛室的資料</a></td>
+	</tr>

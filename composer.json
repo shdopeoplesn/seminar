@@ -1,0 +1,8 @@
+{
+    "require": {
+        "izniburak/pdox": "^1.2",
+        "fpdo/fluentpdo": "^1.1",
+        "usmanhalalit/pixie": "^2.0",
+        "tracy/tracy": "^2.4"
+    }
+}
