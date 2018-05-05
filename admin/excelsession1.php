@@ -9,15 +9,15 @@ $objPHPExcel->setActiveSheetIndex(0);
 $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(15);
 $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(25);
 
-$objPHPExcel->getActiveSheet()->setCellValue('A1',iconv("big5","UTF-8",'會員編號')); 
-$objPHPExcel->getActiveSheet()->setCellValue('B1',iconv("big5","UTF-8",'會員姓名')); 
-$objPHPExcel->getActiveSheet()->setCellValue('C1',iconv("big5","UTF-8",'會員電話')); 
-$objPHPExcel->getActiveSheet()->setCellValue('D1',iconv("big5","UTF-8",'收據抬頭'));
-$objPHPExcel->getActiveSheet()->setCellValue('E1',iconv("big5","UTF-8",'統一編號'));
-$objPHPExcel->getActiveSheet()->setCellValue('F1',iconv("big5","UTF-8",'論文金額'));
-//$objPHPExcel->getActiveSheet()->setCellValue('G1',iconv("big5","UTF-8",'攜眷金額'));
-$objPHPExcel->getActiveSheet()->setCellValue('G1',iconv("big5","UTF-8",'繳費狀況'));
-$objPHPExcel->getActiveSheet()->setCellValue('H1',iconv("big5","UTF-8",'信箱'));
+$objPHPExcel->getActiveSheet()->setCellValue('A1','會員編號'); 
+$objPHPExcel->getActiveSheet()->setCellValue('B1','會員姓名'); 
+$objPHPExcel->getActiveSheet()->setCellValue('C1','會員電話'); 
+$objPHPExcel->getActiveSheet()->setCellValue('D1','收據抬頭'); 
+$objPHPExcel->getActiveSheet()->setCellValue('E1','統一編號'); 
+$objPHPExcel->getActiveSheet()->setCellValue('F1','論文金額'); 
+//$objPHPExcel->getActiveSheet()->setCellValue('G1','攜眷金額'); 
+$objPHPExcel->getActiveSheet()->setCellValue('G1','繳費狀況'); 
+$objPHPExcel->getActiveSheet()->setCellValue('H1','信箱'); 
 
 $i=2;
 $str="Select id,name,tel,email from members ";
@@ -65,35 +65,35 @@ while(list($id,$name,$tel,$email) = mysql_fetch_row($list))
         
        
     $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, $id);//會員編號
-    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, iconv("big5","UTF-8",$name));//姓名
-    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, iconv("big5","UTF-8",$tel));//電話
-    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, iconv("big5","UTF-8",$receipt));//抬頭
+    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, $name); //姓名
+    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, $tel); //電話
+    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, $receipt); //抬頭
     $objPHPExcel->getActiveSheet()->setCellValue('E' . $i, $uniformno);//統一編號
     $objPHPExcel->getActiveSheet()->setCellValue('F' . $i, $incomemoney-$companion*600);//論文金額
-   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, iconv("big5","UTF-8",$companion*600));//攜眷金額
-    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, iconv("big5","UTF-8",$email));
-    $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, iconv("big5","UTF-8",$matriculate));//繳費狀況
+   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $companion*600); //攜眷金額
+    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, $email); 
+    $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $matriculate); //繳費狀況
                    }
   else{
       $matriculate='未投稿';
       $companion=0;
       $incomemoney=0;
     $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, $id);//會員編號
-    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, iconv("big5","UTF-8",$name));//姓名
-    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, iconv("big5","UTF-8",$tel));//電話
-    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, iconv("big5","UTF-8",$receipt));//抬頭
+    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, $name); //姓名
+    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, $tel); //電話
+    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, $receipt); //抬頭
     $objPHPExcel->getActiveSheet()->setCellValue('E' . $i, $uniformno);//統一編號
     $objPHPExcel->getActiveSheet()->setCellValue('F' . $i, $incomemoney-$companion*600);//論文金額
-   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, iconv("big5","UTF-8",$companion*600));//攜眷金額
-    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, iconv("big5","UTF-8",$email));
-    $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, iconv("big5","UTF-8",$matriculate));//繳費狀況
+   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $companion*600); //攜眷金額
+    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, $email); 
+    $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $matriculate); //繳費狀況
   }
                    $uniformno="";
                    $receipt="";
                    $i=$i+1;
    }
    
-   $objPHPExcel->getActiveSheet()->setTitle(iconv("big5","UTF-8",'全部類別'));
+   $objPHPExcel->getActiveSheet()->setTitle('全部類別'); 
    
    
    
@@ -116,17 +116,17 @@ for($category=1;$category<=13;$category++){
 
 $objPHPExcel->createSheet();
 $objPHPExcel->setActiveSheetIndex($category);
-$objPHPExcel->getActiveSheet()->setTitle(iconv("big5","UTF-8",$category_name));
+$objPHPExcel->getActiveSheet()->setTitle($category_name); 
 $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(15);
 $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(25);
-$objPHPExcel->getActiveSheet()->setCellValue('A1',iconv("big5","UTF-8",'會員編號')); 
-$objPHPExcel->getActiveSheet()->setCellValue('B1',iconv("big5","UTF-8",'會員姓名')); 
-$objPHPExcel->getActiveSheet()->setCellValue('C1',iconv("big5","UTF-8",'會員電話')); 
-$objPHPExcel->getActiveSheet()->setCellValue('D1',iconv("big5","UTF-8",'收據抬頭'));
-$objPHPExcel->getActiveSheet()->setCellValue('E1',iconv("big5","UTF-8",'統一編號'));
-$objPHPExcel->getActiveSheet()->setCellValue('F1',iconv("big5","UTF-8",'論文金額'));
-//$objPHPExcel->getActiveSheet()->setCellValue('G1',iconv("big5","UTF-8",'攜眷金額'));
-$objPHPExcel->getActiveSheet()->setCellValue('H1',iconv("big5","UTF-8",'繳費狀況'));       
+$objPHPExcel->getActiveSheet()->setCellValue('A1','會員編號'); 
+$objPHPExcel->getActiveSheet()->setCellValue('B1','會員姓名'); 
+$objPHPExcel->getActiveSheet()->setCellValue('C1','會員電話'); 
+$objPHPExcel->getActiveSheet()->setCellValue('D1','收據抬頭'); 
+$objPHPExcel->getActiveSheet()->setCellValue('E1','統一編號'); 
+$objPHPExcel->getActiveSheet()->setCellValue('F1','論文金額'); 
+//$objPHPExcel->getActiveSheet()->setCellValue('G1','攜眷金額'); 
+$objPHPExcel->getActiveSheet()->setCellValue('H1','繳費狀況');       
        
        
    $i=2;
@@ -174,26 +174,26 @@ while(list($id,$name,$tel) = mysql_fetch_row($list)){
         
        
     $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, $id);//會員編號
-    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, iconv("big5","UTF-8",$name));//姓名
-    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, iconv("big5","UTF-8",$tel));//電話
-    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, iconv("big5","UTF-8",$receipt));//抬頭
+    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, $name); //姓名
+    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, $tel); //電話
+    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, $receipt); //抬頭
     $objPHPExcel->getActiveSheet()->setCellValue('E' . $i, $uniformno);//統一編號
     $objPHPExcel->getActiveSheet()->setCellValue('F' . $i, $incomemoney-$companion*600);//論文金額
-   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, iconv("big5","UTF-8",$companion*600));//攜眷金額
-    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, iconv("big5","UTF-8",$matriculate));//繳費狀況
+   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $companion*600); //攜眷金額
+    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, $matriculate); //繳費狀況
                    }
   else{
       $matriculate='未投稿';
       $companion=0;
       $incomemoney=0;
     $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, $id);//會員編號
-    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, iconv("big5","UTF-8",$name));//姓名
-    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, iconv("big5","UTF-8",$tel));//電話
-    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, iconv("big5","UTF-8",$receipt));//抬頭
+    $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, $name); //姓名
+    $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, $tel); //電話
+    $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, $receipt); //抬頭
     $objPHPExcel->getActiveSheet()->setCellValue('E' . $i, $uniformno);//統一編號
     $objPHPExcel->getActiveSheet()->setCellValue('F' . $i, $incomemoney-$companion*600);//論文金額
-   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, iconv("big5","UTF-8",$companion*600));//攜眷金額
-    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, iconv("big5","UTF-8",$matriculate));//繳費狀況
+   // $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $companion*600); //攜眷金額
+    $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, $matriculate); //繳費狀況
   }
                    $uniformno="";
                    $receipt="";
@@ -206,6 +206,9 @@ while(list($id,$name,$tel) = mysql_fetch_row($list)){
 
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+//clear all notice message to save excel file
+ob_end_clean(); 
+
 $objWriter->save('test.xlsx'); 
 header("Content-Type:application/vnd.ms-excel");
 header("Content-Disposition:attachment;filename=productregister.xlsx");
