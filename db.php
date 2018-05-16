@@ -1,9 +1,13 @@
 <?php
 require_once("config.php");	                //載入環境設定檔
-define("PDO_HOSTNAME", config('database.host'));
-define("PDO_DATABASE", config('database.dbname'));
-define("PDO_USERNAME", config('database.user'));
-define("PDO_PASSWORD", config('database.pwd'));
+//avoid declare twice
+if(defined('PDO_HOSTNAME') == false || defined('PDO_HOSTNAME') == false
+|| defined('PDO_HOSTNAME') == false || defined('PDO_HOSTNAME') == false){
+	define("PDO_HOSTNAME", config('database.host'));
+	define("PDO_DATABASE", config('database.dbname'));
+	define("PDO_USERNAME", config('database.user'));
+	define("PDO_PASSWORD", config('database.pwd'));
+}
 $hostname = config('database.host');
 $database = config('database.dbname');
 $username =  config('database.user');

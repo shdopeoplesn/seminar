@@ -78,7 +78,7 @@ punctuation'>
 <table border="0" width="700" id="table1" cellspacing="0">
 	<tr>
 		<td class=contnet><a href="on_line.php?sort=report">按是否為報告者排序</a></td>
-		<td align="right" class=contnet><font color="#FF8409">報名總人數：<?php=$disscuss_count?>人</font></td>
+		<td align="right" class=contnet><font color="#FF8409">報名總人數：<?php echo $disscuss_count; ?>人</font></td>
 	</tr>
 </table>
 <div class=Section1 style='layout-grid:18.0pt'>

@@ -5,7 +5,7 @@
  */
 
 // 定義專案根目錄：務必定義絕對路徑，避免網站非獨立網址或 PHP 檔案在不同層子目錄時造成找不到路徑的問題
-define("PROJECT_ROOT", 'D:/UniServerZ/www/seminar');
+define("PROJECT_ROOT", 'L:/UniServerZ/www/seminar');
 // define("PROJECT_ROOT", 'L:/UniServerZ/www/seminar');
 // define("PROJECT_ROOT", 'C:/WebSites/seminor');
 

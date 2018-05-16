@@ -41,8 +41,13 @@ require "../db.php";
     <td width="110" class=title>註冊時間</td>
  </tr>
 <?php
-
-$str = "select name,email,passwd,unit,tel,addtime from members where id='$id' ";
+if(!isset($_GET['id'])){
+	echo 'Error: $_["id"] not found.';
+	exit();
+}else{
+	$id = $_GET['id'];
+}
+$str = "select name,email,passwd,unit,tel,addtime from members where id='' ";
 $list = mysql_query($str,$link);
 while(list($name,$email,$password,$unit,$tel,$addtime) = mysql_fetch_row($list))
  {
