@@ -8,13 +8,18 @@ $unit = filter_var($_POST['unit'],FILTER_SANITIZE_STRING);
 $tel = filter_var($_POST['tel'],FILTER_SANITIZE_NUMBER_INT);
 
 
-$str = "update members set unit='$unit',tel='$tel' where id='$id'";
-mysql_query($str,$link); 
+new \Pixie\Connection('mysql', $config, 'QB');
+$data = array(
+	'unit'        => $unit,
+	'tel' => $tel
+);
+QB::table('members')->where('id', $id)->update($data);
 
-
-$str = "select name,email from members where id='$id'";
-$list = mysql_query($str,$link);
-list($name,$email) = mysql_fetch_row($list);
+$query = QB::table('members')->select(['name', 'email'])
+->where('id','=', $id);
+$answer=$query->get(); 
+$name = $answer[0]->name."<br />";
+$email = $answer[0]->email."<br />";
 
 $mail_title="智慧生活科技研討會-修改基本資料";
 $mail_content="敬愛的".$name."教授/先生 您好，以下為您修改的資料，請確認：<br>
@@ -28,5 +33,7 @@ include "mail.php";
 //mysql_close($link);
 
 header("location:happy.php?act=update");
+echo '123';
+exit();
 
 ?>

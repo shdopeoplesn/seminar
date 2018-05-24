@@ -135,12 +135,12 @@ list($name) = mysql_fetch_row($list);
 ?>
 
 		<tr onmouseover="this.style.backgroundColor='#FFF3E7';" onmouseout="this.style.backgroundColor='';">
-		<td width="66" rowspan="2" class=paper_content><?php=$papernumber?></td>
+		<td width="66" rowspan="2" class=paper_content><?php echo $papernumber?></td>
 			<td class=paper_content1 style="padding:2 0 0 5;cursor:hand;" onmouseout="this.style.color='';" onmouseover="this.style.color='#FF00FF';" onclick="location.href='paper_index2.php?serial=<?php=$serial?>';">英文：<?php=$papername?></td>
-			<td width="100" rowspan="2" class=paper_content><?php=$notify; ?></td>
-			<td width="100" rowspan="2" class=paper_content><?php=$addtime?></td>
-			<td width="100" rowspan="2" class=paper_content><?php=$edittime?></td><?php if ($notify==未審查){?>
-			<td width="38" rowspan="2" class=paper_content><a href="paper_edit.php?serial=<?php=$serial?>"><img onclick="return confirm('確定編輯這筆資料？')" src="images/edit.jpg" border="0"></a></td><?php }?>
+			<td width="100" rowspan="2" class=paper_content><?php echo $notify; ?></td>
+			<td width="100" rowspan="2" class=paper_content><?php echo $addtime?></td>
+			<td width="100" rowspan="2" class=paper_content><?php echo $edittime?></td><?php if ($notify==未審查){?>
+			<td width="38" rowspan="2" class=paper_content><a href="paper_edit.php?serial=<?php echo $serial?>"><img onclick="return confirm('確定編輯這筆資料？')" src="images/edit.jpg" border="0"></a></td><?php }?>
 <?php if($notify!=未審查){ ?><td width="38" rowspan="2" class=paper_content>不可更改</td><?php }?>
 
 

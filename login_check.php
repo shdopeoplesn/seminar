@@ -5,21 +5,22 @@ require "db.php";
 $id=$_POST["id"];
 $passwd=$_POST["passwd"];
 
-$str = "select count(*) from members where id='$id' and passwd='$passwd' ";
-$list = mysql_query($str,$link);
-list($count) = mysql_fetch_row($list);
-
-if($count == 1)
- {
-      $id = strtoupper($id);
-      //session_register("id");
-	  $_SESSION['id']=$id;
-      header("location:happy.php?act=login");
- }
-else
-{
-  header("location:happy.php?act=error");
-  exit;
+new \Pixie\Connection('mysql', $config, 'QB');
+$query = QB::table('members')->select(['id'])->where('id','=', $id)
+											 ->where('passwd','=', $passwd);
+											 
+if($query->count() > 0){
+	$answer=$query->get();
+	$id = $answer[0]->id;
+	
+	$id = strtoupper($id);
+    //session_register("id");
+	$_SESSION['id'] = $id;
+    header("location:happy.php?act=login");
+	exit();
+}else{
+	header("location:happy.php?act=error");
+	exit();
 }
 
 ?>

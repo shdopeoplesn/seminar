@@ -9,9 +9,20 @@ include "chksession.php";
 require "db.php";
 include "index_up.php";
 
+/*
 $str = "select name,passwd,email from members where id='$id'";
 $list = mysql_query($str,$link);
 list($name,$passwd,$email) = mysql_fetch_row($list);
+*/
+
+new \Pixie\Connection('mysql', $config, 'QB');
+$query = QB::table('members')->select(['name','passwd','email'])
+->where('id','=', $id);
+$answer=$query->get(); 
+$name = $answer[0]->name;
+$passwd = $answer[0]->passwd;
+$email = $answer[0]->email;
+
 if($passwd != $old_pw)
  {
    //header("location:edit_password?act=error");
@@ -22,9 +33,15 @@ if($passwd != $old_pw)
  }
 
 
- 
+ /*
 $str = "update members set passwd='$renew_pw' where id='$id'";
 mysql_query($str,$link);
+*/
+$data = array(
+	'passwd' => $renew_pw
+);
+QB::table('members')->where('id', $id)->update($data);
+
 
 $mail_title="智慧生活科技研討會-修改登入密碼";
 $mail_content="敬愛的".$name."教授/先生 您好，以下為您修改的資料，請確認：<br>

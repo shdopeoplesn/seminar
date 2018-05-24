@@ -121,22 +121,27 @@ if( $admid == "crossaccoun" and  $password == "crossaccoun" )
 }
 
 
-   //9個root
-   $stra="select count(*) from session where session_id ='$admid' and passwd='$password'";
-   $lista =mysql_query($stra,$link);
-   list($tcount) = mysql_fetch_row($lista);
-
-   if( $tcount==1 )
-   {
-      $_SESSION['adminss'] = "root2";
-      $_SESSION['adminid'] = $admid;
-      $_SESSION['adminpw'] = $password;
-      $stra="select category from session where session_id ='$admid' ";
-      $lista =mysql_query($stra,$link);
-      list($category) = mysql_fetch_row($lista);
-	  
-      header("location:index.php");
-      exit;
+	//9個root
+	//$stra="select count(*) from session where session_id ='$admid' and passwd='$password'";
+	
+	new \Pixie\Connection('mysql', $config, 'QB');
+	$query = QB::table('session')->select(['session_id'])->where('session_id','=', $admid)
+												 ->where('passwd','=', $password);
+	if($query->count() > 0){
+		$answer=$query->get();
+		
+		$_SESSION['adminss'] = "root2";
+		$_SESSION['adminid'] = $admid;
+		$_SESSION['adminpw'] = $password;
+		
+		/*
+		$stra="select category from session where session_id ='$admid' ";
+		$lista =mysql_query($stra,$link);
+		list($category) = mysql_fetch_row($lista);
+		*/
+		
+		header("location:index.php");
+		exit();
    }
 
 header("location:login_error.php");?>

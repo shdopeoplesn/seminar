@@ -71,7 +71,6 @@ if(!$mail->Send())
 //echo "郵件無法順利寄出!";
 //echo "Mailer Error: " . $mail->ErrorInfo;
 
-exit;
 }
 //echo "郵件已經順利寄出!";
 
